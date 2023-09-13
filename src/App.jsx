@@ -1,11 +1,14 @@
 import {useState,useEffect} from 'react'
+import { Loading } from './components/Loading';
+import { Tours } from './components/Tours';
+import { Tour } from './components/Tour';
 
 const url = 'https://course-api.com/react-tours-project';
 
 const App = () => {
 const [isLoading, setLoading] = useState(true)//set a conditional to determine if loading 
 const [isError, setIsError] = useState(false)
-const [Tours, setTours] = useState([])
+const [tours, setTours] = useState([])
 
 //^(1.) - fetch API function
 const getData = async () => {
@@ -30,27 +33,27 @@ useEffect(() => {
 
 
 
-//^(3.) - 
+//^(3.) - while fetch awaits >> setup conditional return (if successful/or nay) 
 if(isLoading){
-  return <h2>Loading...</h2>
+  return(
+    <main>
+      <Loading />
+    </main>
+    ) 
 }
 if(isError){
 return <h2>There was an error fetching the data</h2>
 }
 
-//! Destructure json obj (Tours)
-const {image,info, name, price}= Tours
+
   return(
-<div>
-{Tours.map((tour) => {
-return(
-<div className='container' key={id}>
-<img src={image} className=''/>
-<h2></h2>
-</div>
-)  
-})}
-</div>
+<main>
+{/*Passing userData obj{tours} to Tours component */}  
+{/*It needs to be iterated over in Tours component */}  
+<Tours tours={tours} />
+</main>
   ) 
 };
+
+
 export default App;
