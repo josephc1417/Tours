@@ -4,7 +4,7 @@ import { Tour } from "./Tour"
 
 
 
-export const Tours = ({tours}) => {
+export const Tours = ({tours,removeTour}) => {
     // const {id,image,info, name, price}=tours
     return (
     <section>
@@ -15,7 +15,7 @@ export const Tours = ({tours}) => {
             <div className="tours">
             {tours.map((tour) => {
               return(
-                <Tour key={tour.id} {...tour}  />
+                <Tour key={tour.id} {...tour} removeTour={removeTour} />
               )
             })}
             </div>
