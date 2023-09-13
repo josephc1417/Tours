@@ -65,6 +65,7 @@ return <h2>There was an error fetching the data</h2>
 {/*It needs to be iterated over in Tours component */}  
 <Tours tours={tours} removeTour={removeTour} />
 
+  <button className="btn btn-block delete-btn" onClick={()=> setTours(getData())}>Refresh</button>
 </main>
   ) 
 };
