@@ -4,14 +4,6 @@ import {useState} from 'react'
 export const Tour = ({id, name, price, image, info, removeTour}) => {
  const [readMore, setReadMore] = useState(false) //boolean
 // display the first 250 characters of the paragraph 
-// 
-
-
-
-
-
-
-
 
   return (
     <article className="single-tour" key={id}>

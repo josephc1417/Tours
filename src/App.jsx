@@ -57,15 +57,23 @@ if(isLoading){
 if(isError){
 return <h2>There was an error fetching the data</h2>
 }
-
-
+  
+if(tours.length === 0) {
   return(
-<main>
-{/*Passing userData obj{tours} to Tours component */}  
-{/*It needs to be iterated over in Tours component */}  
-<Tours tours={tours} removeTour={removeTour} />
+    <main style={{textAlign:'center',alignItems:'center',display:"flex",flexDirection:'column'}}>
+      <h2>No tours left.
+      <br />
+      Please refresh to see available destinations!</h2>
+      <button className="btn btn-block delete-btn" style={{marginTop:'2rem'}} onClick={()=> getData()}>Refresh</button>
+    </main>
+  )
+}
+return(
+  <main>
+  {/*Passing userData obj{tours} to Tours component */}  
+  {/*It needs to be iterated over in Tours component */}  
+  <Tours tours={tours} removeTour={removeTour} />
 
-  <button className="btn btn-block delete-btn" onClick={()=> setTours(getData())}>Refresh</button>
 </main>
   ) 
 };
